@@ -1,0 +1,15 @@
+name: Unleash Checker
+on:
+  workflow_dispatch:
+    
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: kromiii/unleash-checker-ai
+        with:
+          unleash_api_endpoint: ${{ secrets.UNLEASH_API_ENDPOINT }}
+          unleash_api_token: ${{ secrets.UNLEASH_API_TOKEN }}
+          unleash_project_id: ${{ secrets.UNLEASH_PROJECT_ID }}
+          openai_api_key: ${{ secrets.OPENAI_API_KEY }}
